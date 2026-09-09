@@ -1,0 +1,28 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Local working files.  Everything the game ships is game content: extract it
+# where you like, but no shipped asset -- and nothing built from one -- belongs
+# in this repository.
+out/
+local/
+*.POD
+*.pod
+*.dante
+*.bst
+*.smb
+*.mtb
+*.tex
+*.lvl
+*.cib

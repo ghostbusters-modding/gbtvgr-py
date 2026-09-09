@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gbtvgr"
+description = "Asset-format tools for Ghostbusters: The Video Game Remastered -- POD archives, textures, meshes, sets, levels and characters"
+readme = "README.md"
+license = "GPL-2.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Colin Sullivan" }]
+requires-python = ">=3.9"
+dynamic = ["version"]
+keywords = ["ghostbusters", "gbtvgr", "modding", "file-formats", "reverse-engineering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Disassemblers",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# Pillow is only needed for `gbtvgr tex to-png` and the decoder cross-check;
+# every codec round-trip works without it.
+png = ["Pillow>=9"]
+test = ["pytest>=7", "Pillow>=9"]
+
+[project.urls]
+Homepage = "https://github.com/ghostbusters-modding/gbtvgr-py"
+Source = "https://github.com/ghostbusters-modding/gbtvgr-py"
+
+[project.scripts]
+gbtvgr = "gbtvgr.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gbtvgr = ["data/*.json"]
+
+[tool.setuptools.dynamic]
+version = { attr = "gbtvgr.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]   # so a bare `pytest` works in a checkout, uninstalled
+addopts = "-q --strict-markers"
