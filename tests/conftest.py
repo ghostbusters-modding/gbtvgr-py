@@ -8,6 +8,8 @@ directory, the codec round-trips want a corpus extracted out of it:
     gbtvgr pod extract "<game>/W64MODEL.POD" -o out/smb  -f .smb
     gbtvgr pod extract "<game>/W64SET.POD"   -o out/sets -f .bst
     gbtvgr pod extract "<game>/W64ART02.POD" -o out/mtb  -f .mtb
+    gbtvgr pod extract "<game>/W64MODEL.POD" -o out/bfm  -f .bfm
+    gbtvgr pod extract "<game>/COMMON.POD"   -o out/skb  -f .skb
 
     GAME_DIR="<game>" SMB_CORPUS=out/smb BST_CORPUS=out/sets pytest
     pytest --game="<game>" --smb-corpus=out/smb --bst-corpus=out/sets
@@ -26,6 +28,8 @@ _OPTS = [
     ("--smb-corpus", "SMB_CORPUS",  "directory of shipped .smb meshes (from W64MODEL.POD)"),
     ("--bst-corpus", "BST_CORPUS",  "directory of shipped .bst sets (from W64SET.POD)"),
     ("--mtb-corpus", "MTB_CORPUS",  "directory of shipped .mtb materials (from W64ART02.POD)"),
+    ("--bfm-corpus", "BFM_CORPUS",  "directory of shipped .bfm character meshes (from W64MODEL.POD)"),
+    ("--skb-corpus", "SKB_CORPUS",  "directory of shipped .skb skeletons (from COMMON.POD)"),
 ]
 
 
@@ -54,6 +58,8 @@ game_dir    = _fixture("--game",       "GAME_DIR",   "the game directory")
 smb_corpus  = _fixture("--smb-corpus", "SMB_CORPUS", "a .smb corpus")
 bst_corpus  = _fixture("--bst-corpus", "BST_CORPUS", "a .bst corpus")
 mtb_corpus  = _fixture("--mtb-corpus", "MTB_CORPUS", "a .mtb corpus")
+bfm_corpus  = _fixture("--bfm-corpus", "BFM_CORPUS", "a .bfm corpus")
+skb_corpus  = _fixture("--skb-corpus", "SKB_CORPUS", "a .skb corpus")
 
 
 @pytest.fixture(scope="session")

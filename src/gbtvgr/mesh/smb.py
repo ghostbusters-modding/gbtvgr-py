@@ -19,6 +19,7 @@ import argparse, glob, json, os, struct, sys
 from ..wire import R, W, f32_to_half, half_to_f32, read_deps, want
 from .bvt import bbox_of, build_bvt, pack_bbox, read_bvt_node, write_bvt_node
 from .mtb import check_material_masks, read_material, write_material
+from ..smb import pose_nodes, posed_corners   # noqa: F401  the pose block, shared with the CLI codec
 
 VERS = (0x13, 0x19E, 2, 9, 6)   # smb, material, mesh, renderpacket, collisionmesh
 TYPE_SIZE = {1: 4, 2: 8, 3: 12, 4: 16, 5: 4, 9: 4}   # vertex decl element byte sizes

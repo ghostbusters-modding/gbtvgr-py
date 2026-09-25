@@ -626,6 +626,55 @@ def compute_tangents(verts, faces):
         out.append((t, b))
     return out
 
+NO_PARENT = 0xFFFF
+
+
+def _quat_matrix(q):
+    """Rows of the rotation for a (w, x, y, z) quaternion, the pose block's order."""
+    w, x, y, z = q
+    return ((1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)),
+            (2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)),
+            (2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)))
+
+
+def _apply(R, t, p):
+    return tuple(R[i][0] * p[0] + R[i][1] * p[1] + R[i][2] * p[2] + t[i] for i in range(3))
+
+
+def _compose(outer, inner):
+    """(R, t) of outer applied after inner."""
+    Ro, to = outer
+    Ri, ti = inner
+    R = tuple(tuple(sum(Ro[i][k] * Ri[k][j] for k in range(3)) for j in range(3)) for i in range(3))
+    return R, _apply(Ro, to, ti)
+
+
+def pose_nodes(m, pose=0):
+    """Per node (parts, then collisions, then aux) the (R, t) that stands its raw
+    vertices in `pose`, parents composed. A file without a pose block is identity."""
+    n = len(m['parts']) + len(m['collisions']) + len(m['auxnames'])
+    ident = (((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)), (0.0, 0.0, 0.0))
+    if not m['poses']:
+        return [ident] * n
+    rows = m['poses'][pose]
+    local = [(_quat_matrix(struct.unpack('<4f', q)), struct.unpack('<3f', t)) for q, t in rows]
+    out = [None] * n
+    def world(i):
+        if out[i] is None:
+            par = m['parents'][i]
+            out[i] = local[i] if par == NO_PARENT else _compose(world(par), local[i])
+        return out[i]
+    return [world(i) for i in range(n)]
+
+
+def posed_corners(m, node, bbox, pose=0):
+    """The eight corners of a node's raw box stood in `pose`."""
+    R, t = pose_nodes(m, pose)[node]
+    lo, hi = bbox[:3], bbox[3:]
+    return [_apply(R, t, (x, y, z)) for x in (lo[0], hi[0]) for y in (lo[1], hi[1])
+            for z in (lo[2], hi[2])]
+
+
 def bbox_of(points):
     xs, ys, zs = zip(*points)
     return (min(xs), min(ys), min(zs), max(xs), max(ys), max(zs))

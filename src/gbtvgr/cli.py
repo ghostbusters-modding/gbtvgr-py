@@ -18,6 +18,7 @@ FORMATS = [
     ("patchpod", "archive.patchpod", "mod archives: build a chained IMMORTAL.POD, install, roll back"),
     ("tex",      "tex",              ".tex textures: DDS/PNG both ways, cubemaps, mipmaps"),
     ("smb",      "mesh.smb",         "static meshes and .mtb material tables: OBJ both ways"),
+    ("bfm",      "mesh.bfm",         "skinned character meshes (.bfm) and skeleton bone lists (.skb)"),
     ("bst",      "sets.bst",         ".bst sets: the wire codec (parse, verify, rebuild)"),
     ("bst_geom", "sets.geom",        ".bst geometry: meshes, collision, relayout, OBJ export"),
     ("bst_tex",  "sets.materials",   "set materials resolved through .mtb -> .tex -> RGBA"),
