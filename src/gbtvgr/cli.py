@@ -19,11 +19,18 @@ FORMATS = [
     ("tex",      "tex",              ".tex textures: DDS/PNG both ways, cubemaps, mipmaps"),
     ("smb",      "mesh.smb",         "static meshes and .mtb material tables: OBJ both ways"),
     ("bfm",      "mesh.bfm",         "skinned character meshes (.bfm) and skeleton bone lists (.skb)"),
+    ("skin",     "skin.build",       "an outside model onto shipped characters, from a recipe"),
     ("bst",      "sets.bst",         ".bst sets: the wire codec (parse, verify, rebuild)"),
     ("bst_geom", "sets.geom",        ".bst geometry: meshes, collision, relayout, OBJ export"),
     ("bst_tex",  "sets.materials",   "set materials resolved through .mtb -> .tex -> RGBA"),
     ("lvl",      "lvl",              ".lvl actor tables: inspect, validate, diff, add/remove actors"),
     ("cib",      "cib",              ".cib character definitions: inspect, clone, edit properties"),
+    ("level",    "level.wire",       "a whole level: .lvl + .sec layers + .bst + script + lang, byte round trip"),
+    ("library",  "level.library",    "the game's mounted archives as one index: names, extract"),
+    ("transplant", "level.transplant", "move a shipped .bst section into another set, additively"),
+    ("link",     "level.link",       "doorways, PVS lists and the nav join for a grafted room"),
+    ("catalogue", "level.catalogue", "every shipped section, camera path, animation and cue, indexed"),
+    ("slice",    "level.slicer",     "what a section shows from a viewpoint: report, slice, backdrop"),
 ]
 
 _BY_CLI = {name.replace("_", "-"): mod for name, mod, _ in FORMATS}

@@ -24,7 +24,10 @@ dependencies = []
 # Pillow is only needed for `gbtvgr tex to-png` and the decoder cross-check;
 # every codec round-trip works without it.
 png = ["Pillow>=9"]
-test = ["pytest>=7", "Pillow>=9"]
+# The level authoring layer (gbtvgr.level.scene, sections, navmesh, bake)
+# needs numpy; the wire layer and every codec stay dependency-free.
+level = ["numpy>=1.20"]
+test = ["pytest>=7", "Pillow>=9", "numpy>=1.20"]
 
 [project.urls]
 Homepage = "https://github.com/ghostbusters-modding/gbtvgr-py"
@@ -41,6 +44,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 gbtvgr = ["data/*.json"]
+"gbtvgr.level" = ["data/*.json"]
 
 [tool.setuptools.dynamic]
 version = { attr = "gbtvgr.__version__" }

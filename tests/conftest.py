@@ -28,6 +28,7 @@ _OPTS = [
     ("--smb-corpus", "SMB_CORPUS",  "directory of shipped .smb meshes (from W64MODEL.POD)"),
     ("--bst-corpus", "BST_CORPUS",  "directory of shipped .bst sets (from W64SET.POD)"),
     ("--mtb-corpus", "MTB_CORPUS",  "directory of shipped .mtb materials (from W64ART02.POD)"),
+    ("--lvl-corpus", "LVL_CORPUS",  "directory of shipped world\\*.lvl, .sec and .dante (from COMMON.POD)"),
     ("--bfm-corpus", "BFM_CORPUS",  "directory of shipped .bfm character meshes (from W64MODEL.POD)"),
     ("--skb-corpus", "SKB_CORPUS",  "directory of shipped .skb skeletons (from COMMON.POD)"),
 ]
@@ -58,6 +59,7 @@ game_dir    = _fixture("--game",       "GAME_DIR",   "the game directory")
 smb_corpus  = _fixture("--smb-corpus", "SMB_CORPUS", "a .smb corpus")
 bst_corpus  = _fixture("--bst-corpus", "BST_CORPUS", "a .bst corpus")
 mtb_corpus  = _fixture("--mtb-corpus", "MTB_CORPUS", "a .mtb corpus")
+lvl_corpus  = _fixture("--lvl-corpus", "LVL_CORPUS", "a .lvl/.sec corpus")
 bfm_corpus  = _fixture("--bfm-corpus", "BFM_CORPUS", "a .bfm corpus")
 skb_corpus  = _fixture("--skb-corpus", "SKB_CORPUS", "a .skb corpus")
 
