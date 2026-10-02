@@ -25,6 +25,8 @@ FORMATS = [
     ("bst_tex",  "sets.materials",   "set materials resolved through .mtb -> .tex -> RGBA"),
     ("lvl",      "lvl",              ".lvl actor tables: inspect, validate, diff, add/remove actors"),
     ("cib",      "cib",              ".cib character definitions: inspect, clone, edit properties"),
+    ("smp",      "sound.smp",        ".smp voice streams: header + Ogg Vorbis payload, to/from ogg"),
+    ("snb",      "sound.snb",        ".snb sound banks and .snd projects: inspect, verify, compile"),
     ("level",    "level.wire",       "a whole level: .lvl + .sec layers + .bst + script + lang, byte round trip"),
     ("library",  "level.library",    "the game's mounted archives as one index: names, extract"),
     ("transplant", "level.transplant", "move a shipped .bst section into another set, additively"),

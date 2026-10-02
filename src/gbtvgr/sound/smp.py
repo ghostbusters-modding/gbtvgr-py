@@ -197,7 +197,6 @@ def cmd_from_ogg(a):
 
 def build_parser():
     ap = argparse.ArgumentParser(
-        prog="smp.py",
         description="Inspect, verify and convert GBTVG .smp files <-> Ogg Vorbis.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__.split("SMP header")[0].split("\n", 3)[3])

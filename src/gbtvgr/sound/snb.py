@@ -484,7 +484,6 @@ def cmd_from_snd(a):
 
 def build_parser():
     ap = argparse.ArgumentParser(
-        prog="snb.py",
         description="Inspect, verify and convert compiled sound banks (.snb) and XML sound projects (.snd).",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__.split("SNB layout")[0].split("snb.py - ")[1].split("\n", 1)[1])
