@@ -17,6 +17,8 @@ byte-identical output:
     tex                .tex textures  (DXT/BC, cubemaps, mipmaps)
     lvl                .lvl actor tables
     cib                .cib character/biped definitions
+    sound.smp          .smp sound files (160-byte header + Ogg Vorbis)
+    sound.snb          .snb sound banks and .snd projects
 
 Every module is usable as a library and as a subcommand of the `gbtvgr`
 command; `python -m gbtvgr <format> --help` lists any of them.  The CLI keeps
@@ -34,7 +36,7 @@ build's table.
 
 __version__ = "1.0.0"
 
-_MODULES = ("archive", "mesh", "sets", "tex", "lvl", "cib", "wire")
+_MODULES = ("archive", "mesh", "sets", "tex", "lvl", "cib", "sound", "wire")
 
 __all__ = list(_MODULES) + ["__version__"]
 
