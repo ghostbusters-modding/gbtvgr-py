@@ -35,6 +35,8 @@ Source = "https://github.com/ghostbusters-modding/gbtvgr-py"
 
 [project.scripts]
 gbtvgr = "gbtvgr.cli:main"
+smp = "gbtvgr.sound.smp:main"
+snb = "gbtvgr.sound.snb:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

@@ -31,6 +31,8 @@ _OPTS = [
     ("--lvl-corpus", "LVL_CORPUS",  "directory of shipped world\\*.lvl, .sec and .dante (from COMMON.POD)"),
     ("--bfm-corpus", "BFM_CORPUS",  "directory of shipped .bfm character meshes (from W64MODEL.POD)"),
     ("--skb-corpus", "SKB_CORPUS",  "directory of shipped .skb skeletons (from COMMON.POD)"),
+    ("--smp-corpus", "SMP_CORPUS",  "directory of shipped .smp sounds (from the sound PODs, e.g. W64SOUND.POD)"),
+    ("--snb-corpus", "SNB_CORPUS",  "directory of shipped .snb sound banks (from the sound PODs, e.g. W64SOUND.POD)"),
 ]
 
 
@@ -62,6 +64,8 @@ mtb_corpus  = _fixture("--mtb-corpus", "MTB_CORPUS", "a .mtb corpus")
 lvl_corpus  = _fixture("--lvl-corpus", "LVL_CORPUS", "a .lvl/.sec corpus")
 bfm_corpus  = _fixture("--bfm-corpus", "BFM_CORPUS", "a .bfm corpus")
 skb_corpus  = _fixture("--skb-corpus", "SKB_CORPUS", "a .skb corpus")
+smp_corpus  = _fixture("--smp-corpus", "SMP_CORPUS", "an .smp corpus")
+snb_corpus  = _fixture("--snb-corpus", "SNB_CORPUS", "an .snb corpus")
 
 
 @pytest.fixture(scope="session")
