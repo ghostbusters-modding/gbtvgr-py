@@ -150,19 +150,3 @@ It can be easily replaced without touching code:
 ```bash
 DANTE_API_JSON=/path/to/dante_api.json gbtvgr lvl schema ...
 ```
-
-## Docs
-
-The format specifications live in the
-[gbtvgr-docs](https://github.com/ghostbusters-modding/gbtvgr-docs) repository:
-
-| | |
-|---|---|
-| [pod_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/pod_format.md) | POD6: header, entries, compression, and the mount chain |
-| [tex_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/tex_format.md) | `.tex`: formats, cubemaps, mipmaps, the unresolved hash field |
-| [smb_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/smb_format.md) | `.smb`: vertex declarations, render packets, collision, BVT |
-| [mtb_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/mtb_format.md) | `.mtb`: the material table `.smb` and `.bst` refer into |
-| [bst_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/bst_format.md) | `.bst`: sections, meshes, breakers, events |
-| [lvl_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/lvl_format.md) | `.lvl`: the actor table and its typed properties |
-| [cib_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/cib_format.md) | `.cib`: character/biped definitions |
-| [lightmap_format.md](https://github.com/ghostbusters-modding/gbtvgr-docs/blob/main/formats/lightmap_format.md) | how lightmap tiles are laid out and shaded |
